@@ -1,0 +1,11 @@
+{
+  "name": "برنامج المنير",
+  "short_name": "المنير",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./#/app",
+  "display": "standalone",
+  "background_color": "#062a1e",
+  "theme_color": "#062a1e",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
