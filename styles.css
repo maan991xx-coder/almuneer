@@ -156,7 +156,8 @@ footer.foot { text-align: center; color: var(--ink-mute); padding: 34px 0 40px; 
 .gridtable th { font-weight: 500; font-size: 13px; color: var(--ink-mute); padding: 4px 6px; text-align: center; white-space: nowrap; }
 .gridtable th:first-child, .gridtable td:first-child { text-align: right; }
 .gridtable td { padding: 8px 6px; background: rgba(255,255,255,.045); text-align: center; }
-.gridtable td:first-child { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-weight: 500; }
+.gridtable td:first-child { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-weight: 500; min-width: 120px; line-height: 1.4; }
+.gridtable td:last-child { white-space: nowrap; }
 .gridtable td:last-child { border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
 .scroll { overflow-x: auto; }
 .cell { width: 40px; height: 40px; border-radius: 12px; border: 1px solid var(--glass-border); background: rgba(0,0,0,.15); font-size: 18px; cursor: pointer; display: inline-grid; place-items: center; transition: transform .12s ease; padding: 0; color: var(--ink); }
@@ -199,6 +200,14 @@ footer.foot { text-align: center; color: var(--ink-mute); padding: 34px 0 40px; 
   .brand { font-size: 17px; }
   .top nav .btn { padding: 8px 12px; font-size: 14px; min-height: 40px; }
   .panel { padding: 16px; }
-  .cell { width: 36px; height: 36px; font-size: 16px; }
+  .cell { width: 32px; height: 32px; font-size: 15px; border-radius: 10px; }
+  .gridtable td { padding: 6px 3px; }
+  .gridtable th { padding: 4px 2px; font-size: 12px; }
+  .gridtable td:first-child { min-width: 96px; font-size: 14px; padding-inline-start: 8px; }
+  .nk-name { display: none; }
+  .stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .stat { padding: 12px 6px; }
+  .stat b { font-size: 26px; }
+  .stat span { font-size: 12px; }
   .hero { padding-top: 48px; }
 }

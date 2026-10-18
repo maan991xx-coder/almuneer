@@ -363,7 +363,7 @@
             const tip = rep ? [rep.memorized && "الحفظ: " + rep.memorized, rep.review && "المراجعة: " + rep.review, rep.note].filter(Boolean).join(" · ") : "";
             const dis = m === "off" || d > S.today;
             return `<td><button class="cell ${m === "pend" ? "wait" : m} ${dis ? "off" : ""}" ${dis ? "disabled" : ""} data-cell="${st.id}|${d}|${m}" title="${esc(tip)}">${R.MARK_SYM[m]}</button></td>`;
-          }).join("")}<td>${w ? (w.final ? `<span class="badge">${w.necklace.sym} ${w.necklace.name}</span>` : `<span class="muted">${R.ar(w.ok)} من ٥</span>`) : "—"}</td></tr>`).join("")}
+          }).join("")}<td>${w ? (w.final ? `<span class="badge">${w.necklace.sym}<span class="nk-name"> ${w.necklace.name}</span></span>` : `<span class="muted">${R.ar(w.ok)}/٥</span>`) : "—"}</td></tr>`).join("")}
         </tbody></table></div>` : `<div class="empty">لا يوجد طلاب في هذه المجموعة بعد. أضفهم من تبويب «الطلاب».</div>`}
       </div>`;
     bindScope(() => renderApp());
