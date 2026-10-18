@@ -124,7 +124,10 @@
 
   /* ---------- router ---------- */
   window.addEventListener("hashchange", render);
-  sb.auth.onAuthStateChange(async (ev) => { if (ev === "SIGNED_IN" || ev === "SIGNED_OUT") { await loadMe(); render(); } });
+  // Supabase calls inside this callback deadlock the auth lock, so defer the work.
+  sb.auth.onAuthStateChange((ev) => {
+    if (ev === "SIGNED_OUT") { S.me = null; setTimeout(render, 0); }
+  });
 
   async function render() {
     S.today = R.todayISO(C.timeZone);
@@ -311,7 +314,7 @@
         <nav class="tabs glass">${tabs.map(([k, n]) => `<button class="tab ${k === S.tab ? "on" : ""}" data-tab="${k}">${n}</button>`).join("")}</nav>
         <div id="view"><div class="empty">جارٍ التحميل…</div></div>
       </main>`;
-    document.getElementById("logout").onclick = async () => { await sb.auth.signOut(); S.me = null; S.tab = null; location.hash = "#/"; };
+    document.getElementById("logout").onclick = async () => { S.me = null; S.tab = null; await sb.auth.signOut({ scope: "local" }); location.hash = "#/"; render(); };
     root.querySelectorAll("[data-tab]").forEach((b) => (b.onclick = () => { S.tab = b.dataset.tab; renderApp(); }));
     const view = document.getElementById("view");
     if (S.me.status !== "active" && S.me.role === "student") { view.innerHTML = `<div class="panel glass empty">حسابك ${STATUS_NAMES[S.me.status]} في البرنامج. للاستفسار تواصل مع الإدارة.</div>`; return; }
