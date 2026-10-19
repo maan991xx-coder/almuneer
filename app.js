@@ -156,7 +156,7 @@
       <main class="wrap">
         <section class="hero">
           <h1>برنامج <span>المنير</span></h1>
-          <p class="lead">برنامج لحفظ كتاب الله، يرسل فيه الطالب تقريره اليومي، ويتابعه مشرفه، ويُكرَّم الملتزمون بالقلادات والأوسمة.</p>
+          <p class="lead">برنامج لحفظ المنظومات العلمية، مثل منظومة أنوار العقول وألفية ابن مالك ومدارج الكمال، يرسل فيه الطالب تقريره اليومي، ويتابعه مشرفه، ويُكرَّم الملتزمون بالقلادات والأوسمة.</p>
           <div class="cta"><a class="btn gold" href="#/login">دخول الطلاب والمشرفين</a><a class="btn" href="#rules">تعرّف على اللوائح</a></div>
           <div id="setupLink"></div>
         </section>
@@ -762,7 +762,7 @@
       <button class="btn small" id="editRep" style="margin-top:12px">تعديل التقرير</button>`;
     else todayHtml = `${exToday === "accepted" ? `<div class="msg ok">لديك عذر مقبول اليوم 📝</div>` : exToday === "pending" ? `<div class="msg ok">عذرك لليوم بانتظار قرار المشرف</div>` : ""}
       <form id="rf">
-        <div class="field"><label>ما حفظته اليوم</label><input name="memorized" value="${esc(todayRep?.memorized || "")}" placeholder="مثلًا: سورة الملك من ١ إلى ١٠" required></div>
+        <div class="field"><label>ما حفظته اليوم</label><input name="memorized" value="${esc(todayRep?.memorized || "")}" placeholder="مثلًا: الألفية من البيت ١ إلى ١٠" required></div>
         <div class="field"><label>ما راجعته</label><input name="review" value="${esc(todayRep?.review || "")}" placeholder="اختياري"></div>
         <div class="field"><label>ملاحظة</label><textarea name="note" placeholder="اختياري">${esc(todayRep?.note || "")}</textarea></div>
         <button class="btn gold" style="width:100%">إرسال تقرير اليوم</button>
